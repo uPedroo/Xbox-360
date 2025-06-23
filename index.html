@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xbox 360</title>
+    <link rel="icon" href="./imgs/botao_start.svg" type="image/svg+xml">
+</head>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+
+:root{
+    --font-titulo: "Orbitron", sans-serif;
+    --font-texto: "Roboto", sans-serif;
+
+    --cor-fundo: #FFFFFF;
+    --cor-secundaria: #41AF10;
+    --cor-texto: #000000;
+}
+
+.imagem {
+    transition: transform 0.3s ease;
+}
+
+.imagem:hover {
+    transform: scale(1.1);
+}
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.titulo{
+    color: var(--cor-secundaria);
+    font-family: var(--font-titulo);
+}
+
+.branco{
+    color: var(--cor-secundaria);
+    font-family: var(--font-titulo);
+}
+
+.textos{
+    color: var(--cor-texto);
+    font-family: var(--font-texto);
+    text-align: justify;
+}
+
+.titulo_2{
+    color: var(--cor-fundo);
+    font-family: var(--font-titulo);
+}
+
+.branco_2{
+    color: var(--cor-fundo);
+    font-family: var(--font-titulo);
+}
+
+.textos_2{
+    color: var(--cor-fundo);
+    font-family: var(--font-texto);
+    text-align: justify;
+}
+
+.centralizar_caixa, .centralizar_caixa_titulo, .centralizar_caixa_2{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Cabeçalho */
+.cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--cor-secundaria);
+    padding: 10px;
+    height: 70px;
+}
+
+.logo {
+    width: 205px;
+    height: auto;
+}
+
+.botao_start {
+    width: 75px;
+    height: 80px;
+    cursor: pointer;
+}
+
+/* Menu */
+#menu-btn {
+    width: 43px;
+    height: 43px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1101;
+    transition: transform 0.2s ease, filter 0.3s ease;
+}
+
+#menu-btn.ativo {
+    transform: scale(0.9);
+    filter: brightness(1.5);
+}
+
+.menu {
+    position: fixed;
+    top: 10px;
+    right: -99%;
+    width: 270px;
+    height: 250px;
+    border-radius: 10px;
+    background-color: var(--cor-secundaria);
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    gap: 40px;
+    transition: right 0.5s ease;
+    z-index: 1000;
+}
+
+.menu.ativo {
+    right: 0;
+}
+
+.menu a {
+    color: var(--cor-fundo);
+    text-decoration: none;
+    font-family: var(--font-titulo);
+    font-size: 24px;
+    position: relative;
+}
+
+.menu a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 3px;
+    background-color: var(--cor-fundo);
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s;
+}
+
+.menu a:hover::after {
+    width: 100%;
+}
+
+.logo{
+    width: 114px;
+    height: 29px;
+}
+
+main{
+    background-color: var(--cor-secundaria);
+    width: 100vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.caixa_2{
+    width: 95vw;
+}
+
+.xbox_imagem{
+    position: relative;
+    right: 20px;
+}
+
+.ficha, .grafico{
+    width: 385px;
+    height: 209px;
+}
+
+.fundo{
+    position: absolute;
+    z-index: -1;
+    width: 100vw;
+}
+
+.caixa_4, .caixa_5{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.caixa_6, .caixa_7, .caixa_8, .caixa_9, .caixa_10, .caixa_11{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    width: 380px;
+}
+
+.caixa_12, .caixa_16{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    width: 103vw;
+    left:6%;
+    gap:40px;
+}
+
+.caixa_15{
+        display: flex;
+    position: relative;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    width: 103vw;
+    right:6%;
+    gap:40px;
+}
+
+.caixa_17{
+    width: 85vw;
+}
+
+.direita{
+    display: flex;
+    right: 10%;
+}
+
+.caixa_17 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* --------- RESPONSIVIDADE --------- */
+
+/* TABLET */
+@media (min-width: 768px) {
+    :root {
+        --tamanho-titulo: 44px;
+        --tamanho-subtitulo: 34px;
+        --tamanho-fonte: 18px;
+    }
+
+    .logo {
+        width: 100px;
+        height: auto;
+    }
+
+    .botao_start, #menu-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    main {
+        width: 100vw;
+    }
+
+    .caixa_2, .caixa_3, .caixa_4, .caixa_5 {
+        width: 670px;
+        margin-top: 40px;
+    }
+
+    .caixa_6, .caixa_7, .caixa_8, .caixa_9, 
+    .caixa_10, .caixa_11, .caixa_12, .caixa_15, 
+    .caixa_16{
+        width: 670px;
+        gap: 50px;
+        margin-top: 40px;
+    }
+
+    .caixa_6 p, .caixa_7 p, .caixa_8 p, .caixa_9 p, 
+    .caixa_10 p, .caixa_11 p, .caixa_12 p, 
+    .caixa_15 p, .caixa_16 p, .caixa_17 p {
+        width: 430px;
+    }
+
+    .caixa_17 p{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .centralizar_caixa_titulo, 
+    .centralizar_caixa_2 {
+        margin-top: 48px;
+    }
+
+    .titulo {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+}
+
+/* DESKTOP */
+@media (min-width: 1280px) {
+    :root {
+        --tamanho-titulo: 54px;
+        --tamanho-subtitulo: 42px;
+        --tamanho-fonte: 22px;
+    }
+
+    .logo {
+        width: 180px;
+        height: auto;
+    }
+
+    .botao_start, #menu-btn {
+        width: 60px;
+        height: 60px;
+    }
+
+    main {
+        width: 100vw;
+    }
+
+    .caixa_2, .caixa_3, .caixa_4, .caixa_5 {
+        width: 870px;
+        margin-top: 70px;
+    }
+
+    .caixa_6, .caixa_7, .caixa_8, .caixa_9, 
+    .caixa_10, .caixa_11, .caixa_12, .caixa_15, 
+    .caixa_16, .caixa_17 {
+        width: 870px;
+        gap: 100px;
+        margin-top: 70px;
+    }
+
+    .caixa_6 p, .caixa_7 p, .caixa_8 p, .caixa_9 p, 
+    .caixa_10 p, .caixa_11 p, .caixa_12 p, 
+    .caixa_15 p, .caixa_16 p, .caixa_17 p {
+        width: 600px;
+    }
+
+    .centralizar_caixa_titulo, 
+    .centralizar_caixa_2 {
+        margin-top: 58px;
+    }
+
+    .titulo {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+}
+
+
+</style>
+
+<header>
+    <div class="cabecalho">
+        <img class="logo" src="./imgs/xbox.svg" alt="Logo Xbox">
+        <img class="botao_start" id="menu-btn" src="./imgs/botao_start.svg" alt="Menu">
+    </div>
+
+    <nav class="menu" id="menu">
+        <a href="#sobre">Sobre</a>
+        <a href="#jogos">Jogos de Sucesso</a>
+        <a href="#curiosidades">Curiosidades</a>
+    </nav>
+</header>
+
+<body>
+
+    <div class="centralizar_caixa">
+    <div id="sobre" class="caixa_1">
+        <h1 class="titulo">XBOX 360</h1>
+    </div>
+</div>
+
+<div class="centralizar_caixa">
+    <div class="caixa_2">
+        <p class="textos">
+            <strong>Lançado em 2005</strong>, o Xbox 360 foi a segunda tentativa da Microsoft no mercado de consoles e rapidamente se tornou um fenômeno. Com uma proposta online inovadora,<strong> gráficos potentes e biblioteca sólida</strong>, tornou-se um dos consoles mais queridos da história.
+        </p>
+        <div class="direita">
+            <img class="xbox_imagem imagem" src="./imgs/lançamento.svg">
+        </div>
+    </div>
+</div>
+
+<div class="centralizar_caixa">
+    <div class="caixa_3">
+        <p class="textos">
+            <!-- Texto com especificações, diferenciais ou história -->
+        </p>
+    </div>
+</div>
+
+<div class="centralizar_caixa" id="Ficha_tecnica">
+    <img class="fundo" src="./imgs/fundo_img.svg">
+    <div class="caixa_4">
+        <h2 class="branco">Ficha Técnica</h2>
+        <img class="ficha" src="./imgs/Ficha_tecnica.svg">
+        <p class="textos">
+            <!-- Informações adicionais da ficha -->
+        </p>
+    </div>
+</div>
+
+<div class="centralizar_caixa" id="grafico">
+    <div class="caixa_5">
+        <h2 class="branco">Gráfico de Vendas</h2>
+        <img class="grafico" src="./imgs/grafico.svg">
+    </div>
+</div>
+
+<!-- Jogos de Sucesso -->
+<main id="jogos">
+    <div class="centralizar_caixa_titulo">
+        <h1 class="titulo_2 jogos">Jogos de Sucesso</h1>
+    </div>
+
+<div class="centralizar_caixa" id="halo">
+    <h2 class="branco_2">Halo 3</h2>
+</div>
+    
+    <div class="centralizar_caixa">
+        <div class="caixa_6">
+            <div class="container_imagem">
+                <img class="capa_animacao jogos_preset imagem" src="./imgs/Halo 3.png">
+            </div>
+            <p class="textos_2">
+                Terceiro capítulo da saga Halo, onde o lendário Master Chief lidera a luta final contra o Covenant e o Flood. A<strong> campanha épica</strong> e o<strong> multiplayer </strong> revolucionaram os jogos online no Xbox Live. Um verdadeiro ícone da plataforma.
+            </p>
+        </div>
+    </div>
+
+    <div class="centralizar_caixa">
+        <div class="caixa_7">
+            <p class="textos_2">
+                O jogo se destacou por sua narrativa épica, gráficos impressionantes para a época e uma jogabilidade polida que combinava armas futuristas, veículos e combates intensos.
+            </p>
+            <img class="vazar imagem" src="./imgs/icone_halo.png">
+        </div>
+    </div>
+
+    <div class="centralizar_caixa_titulo" id="gearsofwar">
+        <h2 class="branco_2">Gears of War</h2>
+    </div>
+
+    <div class="centralizar_caixa">
+        <div class="caixa_8">
+            <div class="container_imagem">
+                <img class="capa_animacao imagem" src="./imgs/gearsofwar.png">
+            </div>
+            <p class="textos_2">
+                <Strong>"Gears of War 3"</Strong> conclui a trilogia original da saga Gears of War, centrada na batalha desesperada da humanidade contra os Locust e os Lambent no planeta Sera.
+            </p>
+        </div>
+    </div>
+
+    <div class="centralizar_caixa">
+        <div class="caixa_9">
+            <p class="textos_2">
+                O modo online foi altamente elogiado, com mapas equilibrados e modos como Team Deathmatch, King of the Hill e Execution.
+            </p>
+            <img class="imagem" src="./imgs/gow.png">
+        </div>
+    </div>
+
+    <div class="centralizar_caixa_titulo" id="forza">
+        <h2 class="branco_2">Forza Motorsport</h2>
+    </div>
+
+    <div class="centralizar_caixa">
+        <div class="caixa_10">
+            <div class="container_imagem">
+                <img class="capa_animacao imagem" src="./imgs/Forza.png">
+            </div>
+            <p class="textos_2">
+                <strong>Forza Motorsport 3</strong> é um simulador de corrida que elevou o padrão do realismo nos consoles.<strong> Com mais de 400 carros </strong>licenciados e<strong> 100 pistas</strong> reais e fictícias.
+            </p>
+        </div>
+    </div>
+
+    <div class="centralizar_caixa">
+        <div class="caixa_11">
+            <p class="textos_2">
+                O jogo oferece uma<strong> experiência profunda</strong> tanto para jogadores casuais quanto para entusiastas de automobilismo.
+            </p>
+            <img class="imagem" src="./imgs/Forza_logo[.png">
+        </div>
+    </div>
+</main>
+
+<!-- Curiosidades -->
+<div id="curiosidades" class="centralizar_caixa_2">
+    <h1 class="titulo">Curiosidades</h1>
+</div>
+
+<div class="centralizar_caixa">
+    <div class="centralizar_caixa_titulo" id="kinect">
+        <h2 class="branco">Kinect</h2>
+    </div>
+</div>
+
+<div class="centralizar_caixa">
+    <div class="caixa_12">
+        <p class="textos">
+            <strong>Lançado em 2010</strong>, permitia jogar sem controle usando o corpo. Ele vendeu mais de<strong> 8 milhões</strong> de unidades em apenas 60 dias,<strong> entrando para o Guinness</strong> como o eletrônico de consumo que vendeu mais rápido na história (na época), mas depois perdeu relevância devido à falta de jogos bons e precisão inconsistente.
+        </p>
+        <img class="animacao imagem" src="./imgs/kinect.png">
+    </div>
+</div>
+
+
+<div class="centralizar_caixa_titulo">
+    <h2 class="branco">Avatares</h2>
+</div>
+
+<div class="centralizar_caixa" id="avatar">
+    <div class="caixa_15">
+        <img class="imagem" src="./imgs/avatar.png">
+        <p class="textos">
+            Para competir com os Miis da Nintendo, o Xbox 360 lançou os<strong> Avatares Xbox Live</strong>, pequenas versões cartunizadas dos jogadores que podiam ser usadas em menus, jogos e conquistas.
+        </p>
+    </div>
+</div>
+
+<div class="centralizar_caixa_titulo" id="anel">
+    <h2 class="branco">Anel da Morte</h2>
+</div>
+
+<div class="centralizar_caixa">
+    <div class="caixa_16">
+        <p class="textos">
+            Um dos maiores escândalos da história dos videogames. Muitos consoles apresentaram um problema de<Strong> superaquecimento que causava falhas fatais</Strong> — sinalizadas por<Strong> três luzes vermelhas</Strong> ao redor do botão de ligar. Estima-se que<Strong> 30% dos primeiros consoles foram afetados</Strong>. A Microsoft gastou mais de<Strong> US$ 1 bilhão</Strong> em reparos e garantias.
+        </p>
+        <img class="animacao imagem" src="./imgs/anel da morte.png">
+    </div>
+</div>
+
+<div class="centralizar_caixa_2" id="impacto">
+    <h1 class="titulo" >IMPACTO DE UMA GERAÇÃO</h1>
+</div>
+
+<div class="centralizar_caixa">
+    <img class="fundo" src="./imgs/fundo_img.svg">
+    <div class="caixa_4">
+        <img class="ficha" src="./imgs/impacto.png">
+        <p class="textos">
+            <!-- Informações adicionais da ficha -->
+        </p>
+    </div>
+</div>
+
+    <div class="centralizar_caixa">
+        <div class="caixa_17">
+            <p class="textos">
+            O Xbox 360 foi mais do que um console – foi uma porta de entrada para amizades, clãs online e uma nova era da jogabilidade multiplayer. De conquistas a chats por voz, o 360 deixou uma marca inesquecível na história gamer. 
+            </p>
+            <p class="textos">
+                <strong>Quem viveu sabe. Quem jogou, sente falta até hoje.</strong>
+            </p>
+
+        </div>
+    </div>
+
+<script>
+const btn = document.getElementById('menu-btn');
+const menu = document.getElementById('menu');
+
+btn.addEventListener('click', () => {
+    btn.classList.toggle('ativo');
+    menu.classList.toggle('ativo');
+});
+
+document.querySelectorAll('.menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        btn.classList.remove('ativo');
+        menu.classList.remove('ativo');
+    });
+});
+</script>
+</body>
+</html>
